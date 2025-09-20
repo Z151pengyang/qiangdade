@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系电话 - 17888725672</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .header {
+            background: #4a6cf7;
+            color: white;
+            padding: 30px 20px;
+        }
+        
+        .header h1 {
+            font-weight: 600;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .phone-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2d3958;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 25px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-call {
+            background: #4a6cf7;
+            color: white;
+        }
+        
+        .btn-call:hover {
+            background: #3854d3;
+            transform: translateY(-2px);
+        }
+        
+        .btn-copy {
+            background: #f8f9fa;
+            color: #2d3958;
+            border: 1px solid #e3e6ef;
+        }
+        
+        .btn-copy:hover {
+            background: #f1f3f9;
+            transform: translateY(-2px);
+        }
+        
+        .instructions {
+            background: #f8f9ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .instructions h3 {
+            color: #4a6cf7;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .instructions ul {
+            list-style-type: none;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .instructions i {
+            color: #4a6cf7;
+            margin-top: 4px;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #72809d;
+        }
+        
+        @media (max-width: 600px) {
+            .phone-number {
+                font-size: 28px;
+            }
+            
+            .btn {
+                padding: 14px 20px;
+                font-size: 16px;
+            }
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .toast.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>联系电话</h1>
+            <p>点击下方按钮直接拨打电话</p >
+        </div>
+        
+        <div class="content">
+            <div class="phone-number">
+                <i class="fas fa-phone-alt"></i>
+                <span id="phone">17888725672</span>
+            </div>
+            
+            <div class="action-buttons">
+                <a href=" " class="btn btn-call">
+                    <i class="fas fa-phone"></i>
+                    立即拨打
+                </a >
+                
+                <button onclick="copyPhoneNumber()" class="btn btn-copy">
+                    <i class="fas fa-copy"></i>
+                    复制号码
+                </button>
+            </div>
+            
+            <div class="instructions">
+                <h3>使用说明</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>在手机上点击"立即拨打"将直接拨打电话</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-desktop"></i>
+                        <span>在电脑上点击"立即拨打"将启动相关通讯软件</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clipboard"></i>
+                        <span>点击"复制号码"可将电话号码复制到剪贴板</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2023 联系电话直拨服务</p >
+    </div>
+    
+    <div id="toast" class="toast">电话号码已复制到剪贴板</div>
+    
+    <script>
+        function copyPhoneNumber() {
+            const phoneNumber = "17888725672";
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                showToast();
+            });
+        }
+        
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
